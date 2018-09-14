@@ -1,2 +1,2 @@
 # docker-ruby-jemalloc
-Dockerfile to build the latest Ruby on Ubuntu with Jemalloc compiled in.
+Dockerfile to build the latest Ruby on ubuntu:latest with Jemalloc compiled in.
