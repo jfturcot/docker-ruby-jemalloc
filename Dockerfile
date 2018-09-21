@@ -1,18 +1,33 @@
 FROM ubuntu:latest
 
 ENV RUBY_MAJOR=2.5 RUBY_VERSION=2.5.1 RUBYGEMS_VERSION=2.7.7 BUNDLER_VERSION=1.16.4
-
+ENV DEBIAN_FRONTEND=noninteractive APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
-    bzip2 \
-    ca-certificates \
-    curl \
-    gnupg2 \
-    libffi-dev \
+		bzip2 \
+		ca-certificates \
+		apt-utils \
+		autoconf \
+		build-essential \
+		tzdata \
+		debian-keyring \
+		curl \
+		openssl \
+		procps \
+		gnupg2 \
+		zlib1g-dev \
+		liblzma-dev \
+		libpq-dev \
+		libncurses-dev \
+		libreadline-dev \
+		libffi-dev \
     libssl-dev \
-    libyaml-dev \
-    libjemalloc-dev \
-    zlib1g-dev \
+		libyaml-dev \
+		libjemalloc-dev \
+		libxml2 \
+		libxml2-dev \
+		libxslt1.1 \
+		libxslt1-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 # skip installing gem documentation
@@ -27,17 +42,9 @@ RUN mkdir -p /usr/local/etc \
 RUN set -ex \
 	\
 	&& buildDeps=' \
-    autoconf \
 		bison \
-    gcc \
     libbz2-dev \
     libgdbm-dev \
-    libglib2.0-dev \
-    libncurses-dev \
-    libreadline-dev \
-    libxml2-dev \
-    libxslt-dev \
-    make \
 		ruby \
 	' \
 	&& apt-get update \
