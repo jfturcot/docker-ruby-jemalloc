@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
 ENV RUBY_MAJOR=2.5 RUBY_VERSION=2.5.3 RUBYGEMS_VERSION=2.7.7 BUNDLER_VERSION=1.17.1
 ENV DEBIAN_FRONTEND=noninteractive APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true
@@ -15,6 +15,7 @@ RUN apt-get update \
 		openssl \
 		procps \
 		gnupg2 \
+		git \
 		zlib1g-dev \
 		liblzma-dev \
 		libpq-dev \
@@ -28,6 +29,7 @@ RUN apt-get update \
 		libxml2-dev \
 		libxslt1.1 \
 		libxslt1-dev \
+		libcurl4-openssl-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 # skip installing gem documentation

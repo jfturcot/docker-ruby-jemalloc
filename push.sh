@@ -1,2 +1,2 @@
 #!/bin/bash
-docker push oroup/docker-ruby-jemalloc:latest
+docker push jfturcot/docker-ruby-jemalloc:2.5.3
