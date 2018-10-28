@@ -21,7 +21,7 @@ RUN apt-get update \
 		libncurses-dev \
 		libreadline-dev \
 		libffi-dev \
-    libssl-dev \
+		libssl-dev \
 		libyaml-dev \
 		libjemalloc-dev \
 		libxml2 \
