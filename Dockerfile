@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV RUBY_MAJOR=2.5 RUBY_VERSION=2.5.3 RUBYGEMS_VERSION=2.7.7 BUNDLER_VERSION=1.17.1
+ENV RUBY_MAJOR=2.6 RUBY_VERSION=2.6.0 RUBYGEMS_VERSION=3.0.2
 ENV DEBIAN_FRONTEND=noninteractive APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
@@ -72,7 +72,6 @@ RUN set -ex \
 	&& cd / \
 	&& rm -r /usr/src/ruby \
 	&& gem update --system "$RUBYGEMS_VERSION" \
-	&& gem install bundler --version "$BUNDLER_VERSION" --force \
 	&& rm -r /root/.gem/ \
   && echo "LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.1" > /etc/environment
 
