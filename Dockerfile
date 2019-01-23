@@ -75,6 +75,8 @@ RUN set -ex \
 	&& rm -r /root/.gem/ \
   && echo "LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.1" > /etc/environment
 
+ENV LD_PRELOAD /usr/lib/x86_64-linux-gnu/libjemalloc.so.1
+
 # install things globally, for great justice
 # and don't create ".bundle" in all our apps
 ENV GEM_HOME /usr/local/bundle
